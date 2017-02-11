@@ -1,14 +1,35 @@
 {
   "manifest_version": 2,
 
-  "name": "Getting started example",
-  "description": "This extension shows a Google Image search result for the current page",
+  "name": "Feed Me a Recipe!",
+  "short_name": "Feed Me!",
+  "description": "This extension suggests a recipe based on food words found on your webpage.",
   "version": "1.0",
+  "author": "Katrina, Nicole, Ramya, Tanzeela",
+
 
   "browser_action": {
-    "default_icon": "icon.png",
+    "default_icon": {
+      "9": "icon9.png",
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "default_title": "Feed Me a Recipe!",
     "default_popup": "popup.html"
   },
+
+
+  "content_scripts":
+	[
+		{
+			"matches": ["*://*/*"],
+			"js": ["content_script.js"],
+			"run_at": "document_end"
+		}
+	],
+
+
   "permissions": [
     "activeTab",
     "https://ajax.googleapis.com/"

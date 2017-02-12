@@ -1,5 +1,7 @@
 walk(document.body);
 
+var highlightedWord;
+
 function walk(node)
 {
 	// I stole this function from here:
@@ -41,3 +43,9 @@ function handleText(textNode)
 
 	textNode.nodeValue = v;
 }
+
+document.addEventListener('mouseup', function() {
+	highlightedWord = window.getSelection().toString()
+	console.log(highlightedWord)
+
+})

@@ -1,7 +1,7 @@
-walk(document.body);
+walk(document.body); 
 
 var highlightedWord;
-var mydata = JSON.parse(fooddict);
+var mydata = JSON.parse(fooddict); 
 
 function walk(node)
 {
@@ -60,5 +60,5 @@ function isInDict(word) {
 			return true;
 		}
 	}
-	retur false;
+	return false;
 }

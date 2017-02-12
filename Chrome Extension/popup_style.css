@@ -1,3 +1,13 @@
 .window {
- width: 150px;
+ width: 200px;
+ height: 200px;
+}
+
+body {
+    background-color: paleturquoise;
+
+    border-style: ridge;
+    border-width: 9px;
+    border-color: darkturquoise;
+    margin: 0 0 0 0;
 }

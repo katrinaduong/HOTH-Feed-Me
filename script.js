@@ -9,8 +9,11 @@ const cheerio = require("cheerio")
     ;
 
 var request = require('request');
-var searchUrl = "http://food2fork.com/api/search?key=c11f52460b8807c523cb948baada5f63";
+var searchUrl = "http://food2fork.com/api/search?key=c11f52460b8807c523cb948baada5f63&q=";
+var foodToSearch = "chicken"
+var foodPicUrl;
 var recipeUrl;
+var ingredients;
 
 // Define the scrape function
 function scrape(url, data, cb) {
@@ -34,14 +37,12 @@ function scrape(url, data, cb) {
 }
 
 
-request(searchUrl + '&q=shredded%20chicken', function (error, response, body) {
+request(searchUrl + foodToSearch, function (error, response, body) {
   if (!error && response.statusCode == 200) {
 
     console.log("RECIPES");
-    // console.log(body);
-    // console.log(JSON.parse(body).recipes[0].f2f_url);
-    // console.log(JSON.parse(body).recipes[0].f2f_url);
     recipeUrl = JSON.parse(body).recipes[0].f2f_url;
+    foodPicUrl = JSON.parse(body).recipes[0].image_url;
     console.log("HELLYE");
     // var html = '';
   }
@@ -49,7 +50,17 @@ request(searchUrl + '&q=shredded%20chicken', function (error, response, body) {
   scrape(recipeUrl, {
      description: "li"
   }, (err, data) => {
-      console.log(err || data);
+    //   console.log(err || data);
+      ingredients = data.description.split(',').map(function(item){
+          var arr = item.split(' ')
+          return arr[arr.length - 1]
+      });
+
+      console.log(ingredients);
+
+
+    //   ingredients = JSON.parse(data);
+    //   console.log(ingredients);
   });
 
 });

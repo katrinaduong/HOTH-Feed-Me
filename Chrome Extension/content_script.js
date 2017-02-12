@@ -1,6 +1,7 @@
 walk(document.body);
 
 var highlightedWord;
+var mydata = JSON.parse(fooddict);
 
 function walk(node)
 {
@@ -47,5 +48,17 @@ function handleText(textNode)
 document.addEventListener('mouseup', function() {
 	highlightedWord = window.getSelection().toString()
 	console.log(highlightedWord)
-
+	if(isInDict(highlightedWord)) {
+		// do something
+	}
 })
+
+// check if the word is in fooddict
+function isInDict(word) {
+	for(i in mydata.foods) {
+		if(word == mydata.foods[i]) {
+			return true;
+		}
+	}
+	retur false;
+}

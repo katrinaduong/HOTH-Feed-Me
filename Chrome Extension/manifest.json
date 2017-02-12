@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "Feed Me a Recipe!",
-  "short_name": "Feed Me!",
+  "name": "Cook Up a Recipe!",
+  "short_name": "Recipe",
   "description": "This extension suggests a recipe based on food words found on your webpage.",
   "version": "1.0",
   "author": "Katrina, Nicole, Ramya, Tanzeela",
@@ -15,7 +15,7 @@
       "48": "icon48.png",
       "128": "icon128.png"
     },
-    "default_title": "Feed Me a Recipe!",
+    "default_title": "Cook Up a Recipe!",
     "default_popup": "popup.html"
   },
 
